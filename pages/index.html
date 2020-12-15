@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../blockly_compressed.js"></script>
+    <script src="../blocks_compressed.js"></script>
+    <script src="../arduino_compressed.js"></script>
+    <script src="../msg/js/pt-br.js"></script>
+</head>
+<body>
+    <xml id="toolbox" style="display: none">
+    <category name="Logic">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_null"></block>
+    </category>
+    <category name="Control">
+        <block type="base_delay">
+          <value name="DELAY_TIME">
+            <block type="math_number">
+              <field name="NUM">1000</field>
+            </block>
+          </value>
+        </block>
+        <block type="controls_for">
+          <value name="FROM">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="TO">
+            <block type="math_number">
+              <field name="NUM">10</field>
+            </block>
+          </value>
+        </block>
+        <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math">
+        <block type="math_number"></block>
+        <block type="math_arithmetic"></block>
+        <block type="base_map">
+          <value name="DMAX">
+            <block type="math_number">
+              <field name="NUM">180</field>
+            </block>
+          </value>
+        </block>
+    </category>
+    <category name="Text">
+        <block type="text"></block>
+    </category>
+      <category name="Variables" custom="VARIABLE"></category>
+      <category name="Functions" custom="PROCEDURE"></category>      
+    <category name="Input/Output">
+        <block type="inout_highlow"></block>
+        <block type="inout_digital_write"></block>
+        <block type="inout_digital_read"></block>
+        <block type="inout_analog_write">
+          <value name="NUM">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_analog_read"></block>
+        <block type="serial_print">
+          <value name="CONTENT">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_tone">
+          <value name="NUM">
+            <block type="math_number">
+              <field name="NUM">440</field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_notone"></block>
+        <block type="inout_buildin_led"></block>
+      </category>   
+    </xml>
+    <div id="blocklyDiv" style="height: 480px; width: 600px;">
+      
+          <script>
+            var workspace = Blockly.inject('blocklyDiv',
+                {toolbox: document.getElementById('toolbox')});
+          </script>
+    </div>
+</body>
+</html>

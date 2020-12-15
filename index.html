@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="./blockly_compressed.js"></script>
+    <script src="./blocks_compressed.js"></script>
+    <script src="../arduino_compressed.js"></script>
+    <script src="./msg/js/pt-br.js"></script>
+    <style>
+        .blocklyWorkspace {
+          background-image: url("media/background.png");
+          background-repeat: repeat;
+        }
+
+    </style>
+    <script>
+      var id=-1;
+      var project=-1;
+    </script>
+</head>
+<script>
+  id=
+  loadXML();
+</script>
+<body>
+    <xml id="toolbox" style="display: none">
+      <category name="Logic">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_null"></block>
+    </category>
+    <category name="Control">
+        <block type="base_delay">
+          <value name="DELAY_TIME">
+            <block type="math_number">
+              <field name="NUM">1000</field>
+            </block>
+          </value>
+        </block>
+        <block type="controls_for">
+          <value name="FROM">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+          <value name="TO">
+            <block type="math_number">
+              <field name="NUM">10</field>
+            </block>
+          </value>
+        </block>
+        <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math">
+        <block type="math_number"></block>
+        <block type="math_arithmetic"></block>
+        <block type="base_map">
+          <value name="DMAX">
+            <block type="math_number">
+              <field name="NUM">180</field>
+            </block>
+          </value>
+        </block>
+    </category>
+    <category name="Text">
+        <block type="text"></block>
+    </category>
+      <category name="Variables" custom="VARIABLE"></category>
+      <category name="Functions" custom="PROCEDURE"></category>      
+    <category name="Input/Output">
+        <block type="inout_highlow"></block>
+        <block type="inout_digital_write"></block>
+        <block type="inout_digital_read"></block>
+        <block type="inout_analog_write">
+          <value name="NUM">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_analog_read"></block>
+        <block type="serial_print">
+          <value name="CONTENT">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_tone">
+          <value name="NUM">
+            <block type="math_number">
+              <field name="NUM">440</field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_notone"></block>
+        <block type="inout_buildin_led"></block>
+      </category>   
+      </xml>
+    <div style="display: inline-block;">
+    <div id="blocklyDiv" style="height: 480px; width: 600px;">
+      
+          <script>
+            var workspace = Blockly.inject('blocklyDiv',
+                {toolbox: document.getElementById('toolbox')});
+          </script>
+    </div>
+     
+  </div>
+  <div style="position: absolute; top: 0; right: 0">
+  <button onclick='ok()'>
+    <i data-feather="code"></i>
+    gerarCodigo</button>
+    <br>
+  <button onclick='showXML()'>  <!-- example icon -->
+    <i data-feather="save"></i>
+
+  Salvar</button>
+  <br>  
+  <button onclick='loadXML()'>
+    <i data-feather="upload"></i>
+    Carregar
+  </button>
+</div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+    <script>
+
+      var xmlDom;
+      function ok(){
+        Blockly.JavaScript.addReservedWords('code');
+        var code = Blockly.JavaScript.workspaceToCode(workspace);
+        
+        //console.log('cd'+code);
+        window.ReactNativeWebView.postMessage(''+code)        
+      }
+      async function showXML() {
+      // Generate XML code and display it.
+      xmlDom = Blockly.Xml.workspaceToDom(workspace);
+      var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+      //window.ReactNativeWebView.postMessage(xmlText);
+      const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, xml: xmlText});
+      //alert(resposta.data);
+      localStorage.setItem("dom",xmlText);
+    }
+    async function loadXML() {
+      const resposta = await axios.get("https://apimakerblocks.herokuapp.com/project/"+id);
+      var xmlText = resposta.data[0].xml;      
+
+      xmlDom2=Blockly.Xml.textToDom(xmlText);
+      //alert(localStorage.getItem("dom"));
+      console.log(localStorage.getItem("dom"));
+
+      Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
+    }
+    </script>
+    <script>
+      feather.replace()
+    </script>
+</body>
+</html>

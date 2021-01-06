@@ -9,7 +9,7 @@
  */
 
 var assert = require('chai').assert;
-var Blockly = require('../../dist/');
+var Blockly = require('../../../dist');
 
 var xmlText = '<xml xmlns="https://developers.google.com/blockly/xml">\n' +
 '  <block type="text_print" x="37" y="63">\n' +

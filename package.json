@@ -94,6 +94,7 @@
     "unused": true
   },
   "dependencies": {
+    "@blockly/theme-modern": "^2.1.9",
     "jsdom": "^15.2.1"
   }
 }

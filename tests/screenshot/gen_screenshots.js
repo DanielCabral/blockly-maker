@@ -129,7 +129,7 @@ async function buildBrowser(url, isRtl) {
       toolboxPosition: 'start',
       zoom:
         {
-          controls: false,
+          controls: true,
           wheel: true,
           startScale: 2.0,
           maxScale: 4,

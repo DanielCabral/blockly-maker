@@ -27,8 +27,7 @@
 </script>
 <body>
     <xml id="toolbox" style="display: none">
-      <category name="Lógicos e de Controle" colour="#5b80a5">
-        <block type="controls_if"></block>
+      <category name="Lógicos" colour="#2f3542">
         <block type="logic_compare">
           <field name="OP">EQ</field>
         </block>
@@ -42,7 +41,8 @@
         <block type="logic_null"></block>
         <block type="logic_ternary"></block>
       </category>
-      <category name="Repetição" colour="#5ba55b">
+  
+      <category name="Repetição" colour="#ffa502">
         <block type="controls_repeat_ext">
           <value name="TIMES">
             <shadow type="math_number">
@@ -78,7 +78,7 @@
           <field name="FLOW">BREAK</field>
         </block>
       </category>
-      <category name="Matemáticos" colour="#5b67a5">
+      <category name="Matemáticos" colour="#ff6b81">
         <block type="math_number">
           <field name="NUM">0</field>
         </block>
@@ -178,101 +178,8 @@
         </block>
         <block type="math_random_float"></block>
       </category>
-      <category name="Texto" colour="#5ba58c">
-        <block type="text">
-          <field name="TEXT"></field>
-        </block>
-        <block type="text_join">
-          <mutation items="2"></mutation>
-        </block>
-        <block type="text_append">
-          <field name="VAR" id="A6t9wQa{$UeuHoG{1Wh5">item</field>
-          <value name="TEXT">
-            <shadow type="text">
-              <field name="TEXT"></field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_length">
-          <value name="VALUE">
-            <shadow type="text">
-              <field name="TEXT">abc</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_isEmpty">
-          <value name="VALUE">
-            <shadow type="text">
-              <field name="TEXT"></field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_indexOf">
-          <field name="END">FIRST</field>
-          <value name="VALUE">
-            <block type="variables_get">
-              <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
-            </block>
-          </value>
-          <value name="FIND">
-            <shadow type="text">
-              <field name="TEXT">abc</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_charAt">
-          <mutation at="true"></mutation>
-          <field name="WHERE">FROM_START</field>
-          <value name="VALUE">
-            <block type="variables_get">
-              <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
-            </block>
-          </value>
-        </block>
-        <block type="text_getSubstring">
-          <mutation at1="true" at2="true"></mutation>
-          <field name="WHERE1">FROM_START</field>
-          <field name="WHERE2">FROM_START</field>
-          <value name="STRING">
-            <block type="variables_get">
-              <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
-            </block>
-          </value>
-        </block>
-        <block type="text_changeCase">
-          <field name="CASE">UPPERCASE</field>
-          <value name="TEXT">
-            <shadow type="text">
-              <field name="TEXT">abc</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_trim">
-          <field name="MODE">BOTH</field>
-          <value name="TEXT">
-            <shadow type="text">
-              <field name="TEXT">abc</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_print">
-          <value name="TEXT">
-            <shadow type="text">
-              <field name="TEXT">abc</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="text_prompt_ext">
-          <mutation type="TEXT"></mutation>
-          <field name="TYPE">TEXT</field>
-          <value name="TEXT">
-            <shadow type="text">
-              <field name="TEXT">abc</field>
-            </shadow>
-          </value>
-        </block>
-      </category>
-      <category name="Listas" colour="#745ba5">
+      <category name="Controle" colour="#70a1ff">
+        <block type="controls_if"></block>
         <block type="lists_create_with">
           <mutation items="0"></mutation>
         </block>
@@ -340,51 +247,110 @@
           <field name="DIRECTION">1</field>
         </block>
       </category>
-      <category name="Cores" colour="#a5745b">
-        <block type="colour_picker">
-          <field name="COLOUR">#ff0000</field>
-        </block>
-        <block type="colour_random"></block>
-        <block type="colour_rgb">
-          <value name="RED">
-            <shadow type="math_number">
-              <field name="NUM">100</field>
-            </shadow>
-          </value>
-          <value name="GREEN">
-            <shadow type="math_number">
-              <field name="NUM">50</field>
-            </shadow>
-          </value>
-          <value name="BLUE">
-            <shadow type="math_number">
-              <field name="NUM">0</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="colour_blend">
-          <value name="COLOUR1">
-            <shadow type="colour_picker">
-              <field name="COLOUR">#ff0000</field>
-            </shadow>
-          </value>
-          <value name="COLOUR2">
-            <shadow type="colour_picker">
-              <field name="COLOUR">#3333ff</field>
-            </shadow>
-          </value>
-          <value name="RATIO">
-            <shadow type="math_number">
-              <field name="NUM">0.5</field>
-            </shadow>
-          </value>
-        </block>
+
+      <sep></sep>
+      <category name="Maker Blocks" colour="#2ecc71">
+        <block type="ligarled"></block>
+        <category name="Serial" colour="#5ba58c">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+          <block type="text_join">
+            <mutation items="2"></mutation>
+          </block>
+          <block type="text_append">
+            <field name="VAR" id="A6t9wQa{$UeuHoG{1Wh5">item</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_length">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_isEmpty">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_indexOf">
+            <field name="END">FIRST</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
+              </block>
+            </value>
+            <value name="FIND">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_charAt">
+            <mutation at="true"></mutation>
+            <field name="WHERE">FROM_START</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
+              </block>
+            </value>
+          </block>
+          <block type="text_getSubstring">
+            <mutation at1="true" at2="true"></mutation>
+            <field name="WHERE1">FROM_START</field>
+            <field name="WHERE2">FROM_START</field>
+            <value name="STRING">
+              <block type="variables_get">
+                <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
+              </block>
+            </value>
+          </block>
+          <block type="text_changeCase">
+            <field name="CASE">UPPERCASE</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_trim">
+            <field name="MODE">BOTH</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="text_prompt_ext">
+            <mutation type="TEXT"></mutation>
+            <field name="TYPE">TEXT</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+        </category>
       </category>
       <sep></sep>
+      <category name="Blocos Avançados" colour="#A55B80">
       <category name="Variaveis" colour="#a55b80" custom="VARIABLE"></category>
       <category name="Funções" colour="#995ba5" custom="PROCEDURE"></category>
-      <category name="Maker Blocks" colour="#9fa55b">
-        <block type="ligarled"></block>
+    </category>
       </category></xml>
     <div style="display: inline-block;">
     <div id="blocklyDiv" style="height: 600px; width: 900px;">

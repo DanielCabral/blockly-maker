@@ -44,7 +44,7 @@ Blockly.blockRendering.ConstantProvider = function() {
    * The size of medium padding.
    * @type {number}
    */
-  this.MEDIUM_PADDING = 5;
+  this.MEDIUM_PADDING = 9;
 
   /**
    * The size of medium-large padding.
@@ -95,13 +95,13 @@ Blockly.blockRendering.ConstantProvider = function() {
    * The width of the notch used for previous and next connections.
    * @type {number}
    */
-  this.NOTCH_WIDTH = 15;
+  this.NOTCH_WIDTH = 25;
 
   /**
    * The height of the notch used for previous and next connections.
    * @type {number}
    */
-  this.NOTCH_HEIGHT = 4;
+  this.NOTCH_HEIGHT = 5;
 
   /**
    * The minimum width of the block.
@@ -127,14 +127,14 @@ Blockly.blockRendering.ConstantProvider = function() {
    * Rounded corner radius.
    * @type {number}
    */
-  this.CORNER_RADIUS = 8;
+  this.CORNER_RADIUS = 5;
 
   /**
    * Offset from the left side of a block or the inside of a statement input to
    * the left side of the notch.
    * @type {number}
    */
-  this.NOTCH_OFFSET_LEFT = 15;
+  this.NOTCH_OFFSET_LEFT = 10;
 
   /**
    * Additional offset added to the statement input's width to account for the
@@ -268,7 +268,7 @@ Blockly.blockRendering.ConstantProvider = function() {
    * A field's border rect corner radius.
    * @type {number}
    */
-  this.FIELD_BORDER_RECT_RADIUS = 4;
+  this.FIELD_BORDER_RECT_RADIUS = 6;
 
   /**
    * A field's border rect default height.
@@ -280,13 +280,13 @@ Blockly.blockRendering.ConstantProvider = function() {
    * A field's border rect X padding.
    * @type {number}
    */
-  this.FIELD_BORDER_RECT_X_PADDING = 5;
+  this.FIELD_BORDER_RECT_X_PADDING = 8;
 
   /**
    * A field's border rect Y padding.
    * @type {number}
    */
-  this.FIELD_BORDER_RECT_Y_PADDING = 3;
+  this.FIELD_BORDER_RECT_Y_PADDING = 8;
 
   /**
    * The backing colour of a field's border rect.
@@ -889,7 +889,7 @@ Blockly.blockRendering.ConstantProvider.prototype.makePuzzleTab = function() {
 Blockly.blockRendering.ConstantProvider.prototype.makeNotch = function() {
   var width = this.NOTCH_WIDTH;
   var height = this.NOTCH_HEIGHT;
-  var innerWidth = 3;
+  var innerWidth = 15;
   var outerWidth = (width - innerWidth) / 2;
   function makeMainPath(dir) {
     return Blockly.utils.svgPaths.line(

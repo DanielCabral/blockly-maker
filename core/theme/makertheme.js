@@ -1,53 +1,54 @@
 /**
  * @license
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
 
 /**
- * @fileoverview Classic theme.
- * Contains multi-coloured border to create shadow effect.
+ * @fileoverview Deuteranopia theme.
+ * A colour palette for people that have deuteranopia (the inability to perceive
+ * green light). This can also be used for people that have protanopia (the
+ * inability to perceive red light).
  */
 'use strict';
 
-goog.provide('Blockly.Themes.Classic');
 
 goog.require('Blockly.Theme');
 
 
 // Temporary holding object.
-Blockly.Themes.Classic = {};
+Blockly.Themes.Makertheme = {};
 
-Blockly.Themes.Classic.defaultBlockStyles = {
+Blockly.Themes.Makertheme.defaultBlockStyles = {
   "colour_blocks": {
     "colourPrimary": "#f2a72c",
     "colourSecondary": "#f1c172",
     "colourTertiary": "#da921c"
   },
   "list_blocks": {
-    "colourPrimary": "#70a1ff",
-    "colourSecondary": "#608bdb",
-    "colourTertiary": "#608bdb"
+    "colourPrimary": "#7d65ab",
+    "colourSecondary": "#a88be0",
+    "colourTertiary": "#66518e"
   },
   "logic_blocks": {
-    "colourPrimary": "#2f3542",
-    "colourSecondary": "#1a1a1a",
-    "colourTertiary": "#1a1a1a"
+    "colourPrimary": "#9fd2f1",
+    "colourSecondary": "#c0e0f4",
+    "colourTertiary": "#74bae5"
   },
   "loop_blocks": {
-    "colourPrimary": "#ffab19",
-    "colourSecondary": "#da9d34",
-    "colourTertiary": "#cf8b17"
+    "colourPrimary": "#795a07",
+    "colourSecondary": "#ac8726",
+    "colourTertiary": "#c4a03f"
   },
   "math_blocks": {
-    "colourPrimary": "#59c059",
-    "colourSecondary": "#4bae4b",
-    "colourTertiary": "#4bae4b"
+    "colourPrimary": "#e6da39",
+    "colourSecondary": "#f3ec8e",
+    "colourTertiary": "#f2eeb7"
   },
   "procedure_blocks": {
-    "colourPrimary": "#f26849",
-    "colourSecondary": "#cc573d",
-    "colourTertiary": "#cc573d"
+    "colourPrimary": "#590721",
+    "colourSecondary": "#8c475d",
+    "colourTertiary": "#885464"
   },
   "text_blocks": {
     "colourPrimary": "#058863",
@@ -55,9 +56,9 @@ Blockly.Themes.Classic.defaultBlockStyles = {
     "colourTertiary": "#04684c"
   },
   "variable_blocks": {
-    "colourPrimary": "#d65cd6",
-    "colourSecondary": "#cc51cc",
-    "colourTertiary": "#cc51cc"
+    "colourPrimary": "#47025a",
+    "colourSecondary": "#820fa1",
+    "colourTertiary": "#8e579d"
   },
   "variable_dynamic_blocks": {
     "colourPrimary": "#47025a",
@@ -66,7 +67,7 @@ Blockly.Themes.Classic.defaultBlockStyles = {
   }
 };
 
-Blockly.Themes.Classic.categoryStyles = {
+Blockly.Themes.Makertheme.categoryStyles = {
   "colour_category": {
     "colour": "#f2a72c"
   },
@@ -96,6 +97,7 @@ Blockly.Themes.Classic.categoryStyles = {
   }
 };
 
-Blockly.Themes.Classic =
-    new Blockly.Theme('classic', Blockly.Themes.Classic.defaultBlockStyles,
-        Blockly.Themes.Classic.categoryStyles);
+Blockly.Themes.Makertheme =
+    new Blockly.Theme('makertheme',
+        Blockly.Themes.Makertheme.defaultBlockStyles,
+        Blockly.Themes.Makertheme.categoryStyles);

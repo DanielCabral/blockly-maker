@@ -31,7 +31,7 @@ goog.require('Blockly.Warning');
  * Unused constant for the common HSV hue for all blocks in this category.
  * @deprecated Use Blockly.Msg['LOOPS_HUE']. (2018 April 5)
  */
-Blockly.Constants.Loops.HUE = 120;
+Blockly.Constants.Loops.HUE = '#ffcc33';
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   // Block for repeat n times (external number).

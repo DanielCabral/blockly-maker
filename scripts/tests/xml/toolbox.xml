@@ -14,7 +14,7 @@
     <block type="logic_null"></block>
     <block type="logic_ternary"></block>
   </category>
-  <category name="Repetição" colour="#5ba55b">
+  <category name="Repetição" colour="#ffcc33">
     <block type="controls_repeat_ext">
       <value name="TIMES">
         <shadow type="math_number">

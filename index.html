@@ -11,31 +11,21 @@
     <script src="./blocks_compressed.js"></script>
     <script src="../arduino_compressed.js"></script>
     <script src="./msg/js/pt-br.js"></script>
-    <style>
-        .blocklyWorkspace {
-          background-image: url("media/background.png");
-          background-repeat: repeat;
-          
-        }
-        
 
-
-
-    </style>
     <script>
       var id=-1;
       var project=-1;
     </script>
 </head>
 <script>
-  id=
-  loadXML();
+  id= loadXML();
 </script>
 <body>
     <xml id="toolbox" style="display: none">
       <category name="Lógicos" colour="#2f3542">
+        <block type="controls_if"></block>
         <block type="logic_compare">
-          <field name="OP">EQ</field>
+          <field name="OP" >EQ</field>
         </block>
         <block type="logic_operation">
           <field name="OP">AND</field>
@@ -84,7 +74,7 @@
           <field name="FLOW">BREAK</field>
         </block>
       </category>
-      <category name="Matemáticos" colour="#ff6b81">
+      <category name="Matemáticos" colour="#59c059">
         <block type="math_number">
           <field name="NUM">0</field>
         </block>
@@ -184,193 +174,148 @@
         </block>
         <block type="math_random_float"></block>
       </category>
-      <category name="Controle" colour="#70a1ff">
-        <block type="controls_if"></block>
-        <block type="lists_create_with">
-          <mutation items="0"></mutation>
+      <category name="Texto" colour="#5ba58c"> 
+        <block type="text">
+          <field name="TEXT"></field>
         </block>
-        <block type="lists_create_with">
-          <mutation items="3"></mutation>
+        <block type="text_join">
+          <mutation items="2"></mutation>
         </block>
-        <block type="lists_repeat">
-          <value name="NUM">
-            <shadow type="math_number">
-              <field name="NUM">5</field>
+        <block type="text_append">
+          <field name="VAR" id="A6t9wQa{$UeuHoG{1Wh5">item</field>
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT"></field>
             </shadow>
           </value>
         </block>
-        <block type="lists_length"></block>
-        <block type="lists_isEmpty"></block>
-        <block type="lists_indexOf">
+        <block type="text_length">
+          <value name="VALUE">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_isEmpty">
+          <value name="VALUE">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_indexOf">
           <field name="END">FIRST</field>
           <value name="VALUE">
             <block type="variables_get">
-              <field name="VAR" id="-*]:3RJ}^e^AatePH:7d">list</field>
+              <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
             </block>
           </value>
-        </block>
-        <block type="lists_getIndex">
-          <mutation statement="false" at="true"></mutation>
-          <field name="MODE">GET</field>
-          <field name="WHERE">FROM_START</field>
-          <value name="VALUE">
-            <block type="variables_get">
-              <field name="VAR" id="-*]:3RJ}^e^AatePH:7d">list</field>
-            </block>
-          </value>
-        </block>
-        <block type="lists_setIndex">
-          <mutation at="true"></mutation>
-          <field name="MODE">SET</field>
-          <field name="WHERE">FROM_START</field>
-          <value name="LIST">
-            <block type="variables_get">
-              <field name="VAR" id="-*]:3RJ}^e^AatePH:7d">list</field>
-            </block>
-          </value>
-        </block>
-        <block type="lists_getSublist">
-          <mutation at1="true" at2="true"></mutation>
-          <field name="WHERE1">FROM_START</field>
-          <field name="WHERE2">FROM_START</field>
-          <value name="LIST">
-            <block type="variables_get">
-              <field name="VAR" id="-*]:3RJ}^e^AatePH:7d">list</field>
-            </block>
-          </value>
-        </block>
-        <block type="lists_split">
-          <mutation mode="SPLIT"></mutation>
-          <field name="MODE">SPLIT</field>
-          <value name="DELIM">
+          <value name="FIND">
             <shadow type="text">
-              <field name="TEXT">,</field>
+              <field name="TEXT">abc</field>
             </shadow>
           </value>
         </block>
-        <block type="lists_sort">
-          <field name="TYPE">NUMERIC</field>
-          <field name="DIRECTION">1</field>
+        <block type="text_charAt">
+          <mutation at="true"></mutation>
+          <field name="WHERE">FROM_START</field>
+          <value name="VALUE">
+            <block type="variables_get">
+              <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
+            </block>
+          </value>
+        </block>
+        <block type="text_getSubstring">
+          <mutation at1="true" at2="true"></mutation>
+          <field name="WHERE1">FROM_START</field>
+          <field name="WHERE2">FROM_START</field>
+          <value name="STRING">
+            <block type="variables_get">
+              <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
+            </block>
+          </value>
+        </block>
+        <block type="text_changeCase">
+          <field name="CASE">UPPERCASE</field>
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_trim">
+          <field name="MODE">BOTH</field>
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_print">
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_prompt_ext">
+          <mutation type="TEXT"></mutation>
+          <field name="TYPE">TEXT</field>
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
         </block>
       </category>
+      <sep></sep>
+      <category name="Variaveis" colour="#d65cd6" custom="VARIABLE"></category>
+      <category name="Funções" colour="#f26849" custom="PROCEDURE"></category>
+      <sep></sep>
+      <category name="Saída" colour="#4c97ff">      </category>
+      <category name="Entrada" colour="#9966ff">      </category>
+
 
       <sep></sep>
-      <category name="Maker Blocks" colour="#2ecc71">
-        <block type="ligarled"></block>
-        <category name="Serial" colour="#5ba58c">
-          <block type="text">
-            <field name="TEXT"></field>
-          </block>
-          <block type="text_join">
-            <mutation items="2"></mutation>
-          </block>
-          <block type="text_append">
-            <field name="VAR" id="A6t9wQa{$UeuHoG{1Wh5">item</field>
-            <value name="TEXT">
-              <shadow type="text">
-                <field name="TEXT"></field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_length">
-            <value name="VALUE">
-              <shadow type="text">
-                <field name="TEXT">abc</field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_isEmpty">
-            <value name="VALUE">
-              <shadow type="text">
-                <field name="TEXT"></field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_indexOf">
-            <field name="END">FIRST</field>
-            <value name="VALUE">
-              <block type="variables_get">
-                <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
-              </block>
-            </value>
-            <value name="FIND">
-              <shadow type="text">
-                <field name="TEXT">abc</field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_charAt">
-            <mutation at="true"></mutation>
-            <field name="WHERE">FROM_START</field>
-            <value name="VALUE">
-              <block type="variables_get">
-                <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
-              </block>
-            </value>
-          </block>
-          <block type="text_getSubstring">
-            <mutation at1="true" at2="true"></mutation>
-            <field name="WHERE1">FROM_START</field>
-            <field name="WHERE2">FROM_START</field>
-            <value name="STRING">
-              <block type="variables_get">
-                <field name="VAR" id="9zne2Dp;Y=vwtm*.Nej1">text</field>
-              </block>
-            </value>
-          </block>
-          <block type="text_changeCase">
-            <field name="CASE">UPPERCASE</field>
-            <value name="TEXT">
-              <shadow type="text">
-                <field name="TEXT">abc</field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_trim">
-            <field name="MODE">BOTH</field>
-            <value name="TEXT">
-              <shadow type="text">
-                <field name="TEXT">abc</field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_print">
-            <value name="TEXT">
-              <shadow type="text">
-                <field name="TEXT">abc</field>
-              </shadow>
-            </value>
-          </block>
-          <block type="text_prompt_ext">
-            <mutation type="TEXT"></mutation>
-            <field name="TYPE">TEXT</field>
-            <value name="TEXT">
-              <shadow type="text">
-                <field name="TEXT">abc</field>
-              </shadow>
-            </value>
-          </block>
-        </category>
-      </category>
-      <sep></sep>
-      <category name="Blocos Avançados" colour="#A55B80">
-      <category name="Variaveis" colour="#a55b80" custom="VARIABLE"></category>
-      <category name="Funções" colour="#995ba5" custom="PROCEDURE"></category>
+     
     </category>
       </category></xml>
-    <div style="display: inline-block;">
-    <div id="blocklyDiv" style="height: 600px; width: 900px;">
+      <div id="blocklyDiv" style="height: 680px; width: 900px;">
       
-          <script>
-            var workspace = Blockly.inject('blocklyDiv',
-                {toolbox: document.getElementById('toolbox')});
-          </script>
-    </div>
+        <script>
+          var workspace = Blockly.inject('blocklyDiv',
+          
+              {
+                theme: 'Classic',
+                toolbox: document.getElementById('toolbox'),
+              zoom:{
+                controls: true,
+                wheel: true,
+                startScale: 1.0,
+                maxScale: 2,
+                minScale: 0.5,
+                scaleSpeed: 1.2,
+                pinch: true
+              },
+              grid:{
+                spacing: 70,
+                length: 3,
+                colour: '#050505',
+                snap: true
+              },
+
+
+              // theme: Theme
+            });
+  //
+
+        </script>
+  </div>
      
   </div>
   <div style="position: absolute; top: 0; right: 0">
   <button onclick='ok()'>
-    <i data-feather="code"></i>
+    <i data-feather="play"></i>
     </button>
     <br>
   <button onclick='showXML()'>  <!-- example icon -->
@@ -379,7 +324,22 @@
   <br>  
   <button onclick='loadXML()'>
     <i data-feather="upload"></i>
-    
+  </button>
+  <br>
+  <button onclick='loadXML()'>
+    <i data-feather="arrow-left"></i>
+  </button>
+  <br>
+  <button onclick='loadXML()'>
+    <i data-feather="arrow-right"></i>
+  </button>
+  <br>
+  <button onclick='loadXML()'>
+    <i data-feather="user"></i>
+  </button>
+  <br>
+  <button onclick='loadXML()'>
+    <i data-feather="bluetooth"></i>
   </button>
 </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  

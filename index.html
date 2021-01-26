@@ -359,7 +359,7 @@
       var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
       //window.ReactNativeWebView.postMessage(xmlText);
       const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, xml: xmlText});
-      //alert(resposta.data);
+      alert(resposta.data);
       localStorage.setItem("dom",xmlText);
     }
     async function loadXML() {
@@ -372,6 +372,7 @@
 
       Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
     }
+    loadXML();
     </script>
     <script>
       feather.replace()

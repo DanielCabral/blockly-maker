@@ -45,14 +45,14 @@ Blockly.Themes.Classic.defaultBlockStyles = {
     "colourTertiary": "#4bae4b"
   },
   "procedure_blocks": {
+    "colourPrimary": "#058863",
+    "colourSecondary": "#5ecfaf",
+    "colourTertiary": "#5ecfaf"
+  },
+  "text_blocks": {
     "colourPrimary": "#f26849",
     "colourSecondary": "#cc573d",
     "colourTertiary": "#cc573d"
-  },
-  "text_blocks": {
-    "colourPrimary": "#058863",
-    "colourSecondary": "#5ecfaf",
-    "colourTertiary": "#04684c"
   },
   "variable_blocks": {
     "colourPrimary": "#d65cd6",

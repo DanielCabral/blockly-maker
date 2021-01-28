@@ -326,11 +326,11 @@
     <i data-feather="upload"></i>
   </button>
   <br>
-  <button onclick='loadXML()'>
+  <button onclick='undo()'>
     <i data-feather="arrow-left"></i>
   </button>
   <br>
-  <button onclick='loadXML()'>
+  <button onclick='redo()'>
     <i data-feather="arrow-right"></i>
   </button>
   <br>
@@ -362,6 +362,15 @@
       alert(resposta.data);
       localStorage.setItem("dom",xmlText);
     }
+    
+    async function undo() {      
+      Blockly.mainWorkspace.undo(false);      
+    }
+    
+    async function redo() {      
+      Blockly.mainWorkspace.undo(true);      
+    }
+
     async function loadXML() {
       const resposta = await axios.get("https://apimakerblocks.herokuapp.com/project/"+id);
       var xmlText = resposta.data[0].xml;      

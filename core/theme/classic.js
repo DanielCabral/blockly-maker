@@ -30,9 +30,9 @@ Blockly.Themes.Classic.defaultBlockStyles = {
     "colourTertiary": "#608bdb"
   },
   "logic_blocks": {
-    "colourPrimary": "#2f3542",
-    "colourSecondary": "#1a1a1a",
-    "colourTertiary": "#1a1a1a"
+    "colourPrimary": "#59c059",
+    "colourSecondary": "#4bae4b",
+    "colourTertiary": "#4bae4b"
   },
   "loop_blocks": {
     "colourPrimary": "#ffab19",

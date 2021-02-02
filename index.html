@@ -274,6 +274,35 @@
       <sep></sep>
       <category name="Saída" colour="#4c97ff">      </category>
       <category name="Entrada" colour="#9966ff">      </category>
+      <category name="Input/Output" colour="#4c97ff"> 
+        <block type="inout_highlow"></block>
+        <block type="inout_digital_write"></block>
+        <block type="inout_digital_read"></block>
+        <block type="inout_analog_write">
+          <value name="NUM">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_analog_read"></block>
+        <block type="serial_print">
+          <value name="CONTENT">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_tone">
+          <value name="NUM">
+            <block type="math_number">
+              <field name="NUM">440</field>
+            </block>
+          </value>
+        </block>
+        <block type="inout_notone"></block>
+        <block type="inout_buildin_led"></block>
+      </category>
 
 
       <sep></sep>

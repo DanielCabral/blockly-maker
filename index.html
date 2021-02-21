@@ -13,7 +13,7 @@
     <script src="./msg/js/pt-br.js"></script>
 
     <script>
-      var id=-1;
+      var id=-1 ;
       var project=-1;
     </script>
 </head>
@@ -306,8 +306,7 @@
                 length: 3,
                 colour: '#050505',
                 snap: true
-              },
-
+              }              
 
               // theme: Theme
             });
@@ -356,15 +355,14 @@
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         
         //console.log('cd'+code);
-        window.ReactNativeWebView.postMessage(''+code)        
+        window.ReactNativeWebView.postMessage('upload')        
       }
       async function showXML() {
       // Generate XML code and display it.
       xmlDom = Blockly.Xml.workspaceToDom(workspace);
       var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
       //window.ReactNativeWebView.postMessage(xmlText);
-      const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, xml: xmlText});
-      alert(resposta.data);
+      const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, project, xml: xmlText});      
       localStorage.setItem("dom",xmlText);
     }
     
@@ -376,17 +374,23 @@
       Blockly.mainWorkspace.undo(true);      
     }
 
-    async function loadXML() {
-      const resposta = await axios.get("https://apimakerblocks.herokuapp.com/project/"+id);
-      var xmlText = resposta.data[0].xml;      
-
+    async function loadXML() {      
+      const resposta = await axios.get("https://apimakerblocks.herokuapp.com/project/"+project)
+      .then((resposta) => {
+        //alert('ok')
+        var xmlText = resposta.data.xml;            
+        document.title = resposta.data.name; 
+        //alert(xmlText);
       xmlDom2=Blockly.Xml.textToDom(xmlText);
       //alert(localStorage.getItem("dom"));
       console.log(localStorage.getItem("dom"));
 
       Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
+      //alert('ok2')
+      })
+      .catch((error) => console.log('erro '+error));
+      
     }
-    loadXML();
     </script>
     <script>
       feather.replace()

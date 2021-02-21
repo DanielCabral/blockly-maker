@@ -305,8 +305,7 @@
                 length: 3,
                 colour: '#050505',
                 snap: true
-              },
-
+              }              
 
               // theme: Theme
             });
@@ -355,7 +354,7 @@
         var code = Blockly.JavaScript.workspaceToCode(workspace);
         
         //console.log('cd'+code);
-        window.ReactNativeWebView.postMessage(''+code)        
+        window.ReactNativeWebView.postMessage('upload')        
       }
       async function showXML() {
       // Generate XML code and display it.
@@ -388,10 +387,9 @@
       Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
       //alert('ok2')
       })
-      .catch((error) => alert('erro'+error));
+      .catch((error) => console.log('erro '+error));
       
     }
-    loadXML();
     </script>
     <script>
       feather.replace()

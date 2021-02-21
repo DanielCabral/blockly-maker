@@ -84,8 +84,8 @@ Blockly.Blocks['inout_digital_write'] = {
 	      .appendField("Definir pino digital ")
 	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
       	.appendField("como")
-      	.appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
-    this.setPreviousStatement(true, null);
+        .appendField(new Blockly.FieldDropdown([["ALTO", "ALTO"], ["BAIXO", "BAIXO"]]), "STAT");
+        this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Definia um valor digital para uma porta especifica');
   }
@@ -127,6 +127,18 @@ Blockly.Blocks['inout_analog_read'] = {
     this.appendDummyInput()
         .appendField("Leitura analógica no pino")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN");
+    this.setOutput(true, 'Number');
+    this.setTooltip('Return value between 0 and 1024');
+  }
+};
+
+Blockly.Blocks['inout_ultrassonico'] = {
+  helpUrl: 'http://arduino.cc/en/Reference/AnalogRead',
+  init: function() {
+    this.setColour("#9966ff");
+    this.appendDummyInput()
+        .appendField("Ler sensor de distância ultrassônico no pino")
+        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setOutput(true, 'Number');
     this.setTooltip('Return value between 0 and 1024');
   }

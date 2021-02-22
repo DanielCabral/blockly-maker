@@ -351,11 +351,10 @@
 
       var xmlDom;
       function ok(){
-        //Blockly.JavaScript.addReservedWords('code');
-        //var code = Blockly.JavaScript.workspaceToCode(workspace);
+        const code = Blockly.Arduino.workspaceToCode();
         
-        //console.log('cd'+code);
-        window.ReactNativeWebView.postMessage('upload')        
+        alert('cd'+code);
+        //window.ReactNativeWebView.postMessage('upload')        
       }
       async function showXML() {
       // Generate XML code and display it.

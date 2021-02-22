@@ -42,8 +42,8 @@ Blockly.Arduino = new Blockly.Generator('Arduino');
  * @private
  */
 Blockly.Arduino.addReservedWords(
-    // http://arduino.cc/en/Reference/HomePage
-    'setup,loop,if,else,for,switch,case,while,do,break,continue,return,goto,define,include,HIGH,LOW,INPUT,OUTPUT,INPUT_PULLUP,true,false,interger, constants,floating,point,void,bookean,char,unsigned,byte,int,word,long,float,double,string,String,array,static, volatile,const,sizeof,pinMode,digitalWrite,digitalRead,analogReference,analogRead,analogWrite,tone,noTone,shiftOut,shitIn,pulseIn,millis,micros,delay,delayMicroseconds,min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,randomSeed,random,lowByte,highByte,bitRead,bitWrite,bitSet,bitClear,bit,attachInterrupt,detachInterrupt,interrupts,noInterrupts'
+  // http://arduino.cc/en/Reference/HomePage
+  'setup,loop,if,else,for,switch,case,while,do,break,continue,return,goto,define,include,HIGH,LOW,INPUT,OUTPUT,INPUT_PULLUP,true,false,interger, constants,floating,point,void,bookean,char,unsigned,byte,int,word,long,float,double,string,String,array,static, volatile,const,sizeof,pinMode,digitalWrite,digitalRead,analogReference,analogRead,analogWrite,tone,noTone,shiftOut,shitIn,pulseIn,millis,micros,delay,delayMicroseconds,min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,randomSeed,random,lowByte,highByte,bitRead,bitWrite,bitSet,bitClear,bit,attachInterrupt,detachInterrupt,interrupts,noInterrupts'
 );
 
 /**
@@ -80,13 +80,13 @@ var profile = {
   },
   arduino_mega: {
     description: "Arduino Mega-compatible board"
-    // 53 digital
-    // 15 analog
+    //53 digital
+    //15 analog
   }
 };
-// set default profile to arduino standard-compatible board
+//set default profile to arduino standard-compatible board
 profile["default"] = profile["arduino"];
-// alert(profile.default.digital[0]);
+//alert(profile.default.digital[0]);
 
 /**
  * Initialise the database of variable names.
@@ -98,21 +98,21 @@ Blockly.Arduino.init = function(workspace) {
   // Create a dictionary of setups to be printed before the code.
   Blockly.Arduino.setups_ = Object.create(null);
 
-  if (!Blockly.Arduino.variableDB_) {
-    Blockly.Arduino.variableDB_ =
+	if (!Blockly.Arduino.variableDB_) {
+		Blockly.Arduino.variableDB_ =
 				new Blockly.Names(Blockly.Arduino.RESERVED_WORDS_);
-  } else {
-    Blockly.Arduino.variableDB_.reset();
-  }
+	} else {
+		Blockly.Arduino.variableDB_.reset();
+	}
 
-  var defvars = [];
-  var variables = Blockly.Variables.allUsedVarModels(workspace);
-  for (var x = 0; x < variables.length; x++) {
-    defvars[x] = 'int ' +
+	var defvars = [];
+	var variables = Blockly.Variables.allVariables(workspace);
+	for (var x = 0; x < variables.length; x++) {
+		defvars[x] = 'int ' +
 				Blockly.Arduino.variableDB_.getName(variables[x],
-				    Blockly.Variables.NAME_TYPE) + ';\n';
-  }
-  Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
+				Blockly.Variables.NAME_TYPE) + ';\n';
+	}
+	Blockly.Arduino.definitions_['variables'] = defvars.join('\n');
 };
 
 /**
@@ -144,7 +144,7 @@ Blockly.Arduino.finish = function(code) {
     setups.push(Blockly.Arduino.setups_[name]);
   }
 
-  var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n') + '\nvoid setup() \n{\n  ' + setups.join('\n  ') + '\n}' + '\n\n';
+  var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n') + '\nvoid setup() \n{\n  '+setups.join('\n  ') + '\n}'+ '\n\n';
   return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
 };
 
@@ -167,9 +167,9 @@ Blockly.Arduino.scrubNakedValue = function(line) {
 Blockly.Arduino.quote_ = function(string) {
   // TODO: This is a quick hack.  Replace with goog.string.quote
   string = string.replace(/\\/g, '\\\\')
-      .replace(/\n/g, '\\\n')
-      .replace(/\$/g, '\\$')
-      .replace(/'/g, '\\\'');
+                 .replace(/\n/g, '\\\n')
+                 .replace(/\$/g, '\\$')
+                 .replace(/'/g, '\\\'');
   return '\"' + string + '\"';
 };
 

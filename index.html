@@ -17,9 +17,6 @@
       var project=-1;
     </script>
 </head>
-<script>
-  id= loadXML();
-</script>
 <body>
     <xml id="toolbox" style="display: none">
   
@@ -318,7 +315,7 @@
 
      
   <div style="position: absolute; top: 0; right: 0">
-  <button onclick='ok()'>
+  <button onclick='blocksToCode()'>
     <i data-feather="play"></i>
     </button>
     <br>
@@ -326,7 +323,7 @@
     <i data-feather="save"></i>
   </button>
   <br>  
-  <button onclick='ok()'>
+  <button onclick='blocksToCode()'>
     <i data-feather="upload"></i>
   </button>
   <br>
@@ -342,7 +339,7 @@
     <i data-feather="user"></i>
   </button>
   <br>
-  <button onclick='loadXML()'>
+  <button onclick='Android.onClicked()'>
     <i data-feather="bluetooth"></i>
   </button>
 </div>
@@ -350,19 +347,21 @@
     <script>
 
       var xmlDom;
-      function ok(){
+      function blocksToCode(){
         const code = Blockly.Arduino.workspaceToCode();
-        
-        alert('cd'+code);
+        console.log(code);
+        Android.blocksToCode(code);
         //window.ReactNativeWebView.postMessage('upload')        
       }
+
       async function showXML() {
       // Generate XML code and display it.
       xmlDom = Blockly.Xml.workspaceToDom(workspace);
       var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+      Android.saveXml(xmlText);
       //window.ReactNativeWebView.postMessage(xmlText);
       const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, project, xml: xmlText});      
-      localStorage.setItem("dom",xmlText);
+      //localStorage.setItem("dom",xmlText);
     }
     
     async function undo() {      
@@ -373,7 +372,8 @@
       Blockly.mainWorkspace.undo(true);      
     }
 
-    async function loadXML() {      
+    async function loadXML() { 
+      console.log(id)     
       const resposta = await axios.get("https://apimakerblocks.herokuapp.com/project/"+project)
       .then((resposta) => {
         //alert('ok')
@@ -382,7 +382,7 @@
         //alert(xmlText);
       xmlDom2=Blockly.Xml.textToDom(xmlText);
       //alert(localStorage.getItem("dom"));
-      console.log(localStorage.getItem("dom"));
+      //console.log(localStorage.getItem("dom"));
 
       Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
       //alert('ok2')

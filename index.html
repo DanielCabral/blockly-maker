@@ -15,6 +15,8 @@
     <script>
       var id=-1 ;
       var project=-1;
+      var projectXml = "";
+      var projectName = "";
     </script>
 </head>
 <body>
@@ -358,7 +360,7 @@
       // Generate XML code and display it.
       xmlDom = Blockly.Xml.workspaceToDom(workspace);
       var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-      Android.saveXml(xmlText);
+      Android.saveXml(projectName,xmlText);
       //window.ReactNativeWebView.postMessage(xmlText);
       const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, project, xml: xmlText});      
       //localStorage.setItem("dom",xmlText);
@@ -373,14 +375,14 @@
     }
 
     async function loadXML() { 
-      console.log(id)     
+      /*console.log(id)     
       const resposta = await axios.get("https://apimakerblocks.herokuapp.com/project/"+project)
       .then((resposta) => {
         //alert('ok')
         var xmlText = resposta.data.xml;            
         document.title = resposta.data.name; 
         //alert(xmlText);
-      xmlDom2=Blockly.Xml.textToDom(xmlText);
+
       //alert(localStorage.getItem("dom"));
       //console.log(localStorage.getItem("dom"));
 
@@ -389,6 +391,13 @@
       })
       .catch((error) => console.log('erro '+error));
       
+    }
+    */
+    alert("projectName")
+    if(projectXml !== ''){
+    xmlDom2=Blockly.Xml.textToDom(projectXml);
+    Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
+    }
     }
     </script>
     <script>

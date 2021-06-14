@@ -69,7 +69,7 @@ Blockly.Blocks['inout_buildin_led'] = {
     this.setColour("#4c97ff");
     this.appendDummyInput()
 	       .appendField("Definir LED incorporado")
-	       .appendField(new Blockly.FieldDropdown([["ALTO", "ALTO"], ["BAIXO", "BAIXO"]]), "STAT");
+	       .appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Ligue ou desligue o LED interno da Makerboard');
@@ -84,7 +84,7 @@ Blockly.Blocks['inout_digital_write'] = {
 	      .appendField("Definir pino digital ")
 	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
       	.appendField("como")
-        .appendField(new Blockly.FieldDropdown([["ALTO", "ALTO"], ["BAIXO", "BAIXO"]]), "STAT");
+        .appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
         this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('Definia um valor digital para uma porta especifica');
@@ -149,7 +149,7 @@ Blockly.Blocks['inout_tone'] = {
   init: function() {
     this.setColour("#4c97ff");
     this.appendDummyInput()
-        .appendField("Definir alto falante no pino")
+        .appendField("Definir HIGH falante no pino")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.appendValueInput("NUM", "Number")
         .appendField("com a frequência de")
@@ -166,7 +166,7 @@ Blockly.Blocks['inout_notone'] = {
   init: function() {
     this.setColour("#4c97ff");
     this.appendDummyInput()
-        .appendField("Desativar alto falante no pino")
+        .appendField("Desativar HIGH falante no pino")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -180,7 +180,7 @@ Blockly.Blocks['inout_highlow'] = {
   init: function() {
     this.setColour("#4c97ff");
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["ALTO", "ALTO"], ["BAIXO", "BAIXO"]]), 'BOOL');
+        .appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), 'BOOL');
     this.setOutput(true, 'Boolean');
     this.setTooltip('');
   }

@@ -28,6 +28,16 @@ goog.provide('Blockly.Arduino.math');
 goog.require('Blockly.Arduino');
 
 
+Blockly.Arduino['math_modulo'] = function(block) {
+  // Remainder computation.
+  var argument0 = Blockly.Arduino.valueToCode(block, 'DIVIDEND',
+      Blockly.Arduino.ORDER_MODULUS) || '0';
+  var argument1 = Blockly.Arduino.valueToCode(block, 'DIVISOR',
+      Blockly.Arduino.ORDER_MODULUS) || '0';
+  var code = argument0 + ' % ' + argument1;
+  return [code, Blockly.Arduino.ORDER_MODULUS];
+};
+
 Blockly.Arduino.math_number = function() {
   // Numeric value.
   var code = window.parseFloat(this.getFieldValue('NUM'));

@@ -186,7 +186,7 @@
       function blocksToCode(){
         const code = Blockly.Arduino.workspaceToCode();
         console.log(code);
-        //Android.blocksToCode(code);
+        Android.blocksToCode(code);
         //window.ReactNativeWebView.postMessage('upload')        
       }
 
@@ -194,7 +194,7 @@
       // Generate XML code and display it.
       xmlDom = Blockly.Xml.workspaceToDom(workspace);
       var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-      //Android.saveXml(projectName,xmlText);
+      Android.saveXml(projectName,xmlText);
       //window.ReactNativeWebView.postMessage(xmlText);
       const resposta = await axios.put("https://apimakerblocks.herokuapp.com/project/", { id, project, xml: xmlText});      
       //localStorage.setItem("dom",xmlText);

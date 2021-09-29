@@ -68,3 +68,17 @@ c))}switch(a.getFieldValue("FLOW")){case "BREAK":return b+"break;\n";case "CONTI
 Blockly.Arduino.controls_flow_statements=function(a){var b="";Blockly.Arduino.STATEMENT_PREFIX&&(b+=Blockly.Arduino.injectId(Blockly.Arduino.STATEMENT_PREFIX,a));Blockly.Arduino.STATEMENT_SUFFIX&&(b+=Blockly.Arduino.injectId(Blockly.Arduino.STATEMENT_SUFFIX,a));if(Blockly.Arduino.STATEMENT_PREFIX){var c=Blockly.Constants.Loops.CONTROL_FLOW_IN_LOOP_CHECK_MIXIN.getSurroundLoop(a);c&&!c.suppressPrefixSuffix&&(b+=Blockly.Arduino.injectId(Blockly.Arduino.STATEMENT_PREFIX,
     c))}switch(a.getFieldValue("FLOW")){case "BREAK":return b+"break;\n";case "CONTINUE":return b+"continue;\n"}throw Error("Unknown flow statement.");};
 Blockly.Arduino.math_modulo=function(a){var b=Blockly.Arduino.valueToCode(a,"DIVIDEND",Blockly.Arduino.ORDER_MODULUS)||"0";a=Blockly.Arduino.valueToCode(a,"DIVISOR",Blockly.Arduino.ORDER_MODULUS)||"0";return[b+" % "+a,Blockly.Arduino.ORDER_MODULUS]};
+Blockly.Arduino.inout_ultrassonico = function() {
+    var dropdown_pin = this.getFieldValue('PIN');
+    var dropdown_pin_eco = this.getFieldValue('PIN2');
+    var dropdown_unit = this.getFieldValue('UNIT');
+    Blockly.Arduino.definitions_['define_ultrasonic'] = '#include <Ultrasonic.h>\n';
+    Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic_'+dropdown_pin+'('+dropdown_pin+');';
+    var code;
+    if(dropdown_unit==="cm"){
+      code = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters()';
+    } else {
+      code = 'ultrasonic_'+dropdown_pin+'.MeasureInInches()';
+    }
+    return [code, Blockly.Arduino.ORDER_ATOMIC];
+  };

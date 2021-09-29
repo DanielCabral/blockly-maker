@@ -11,7 +11,8 @@
       html, body, #blocklyDiv {
         border: 0;
         height: 100%;
-        margin: 0;
+        margin-top: 10px;
+        margin-left: 20px;
         padding: 0;
         width: 100%;
       }
@@ -35,8 +36,8 @@
   
   
       <category name="Controlar" colour="#ffa502">
+        <block type="controls_if"></block>
         <block type="base_delay"></block>
-
         <block type="controls_repeat_ext">
           <value name="TIMES">
             <shadow type="math_number">
@@ -50,8 +51,6 @@
                         
       </category>
       <category name="Matemáticos" colour="#59c059">
-        <block type="controls_if"></block>
-
         <block type="logic_compare">
           <field name="OP" >EQ</field>
         </block>
@@ -119,8 +118,8 @@
       <category name="Entrada" colour="#9966ff">
         <block type="inout_digital_read"></block>
         <block type="inout_analog_read"></block>        
-
-            </category>
+        <block type="inout_ultrassonico"></block>
+      </category>
     
 
 
@@ -161,34 +160,24 @@
   </div>
 
      
-  <div style="position: absolute; top: 0; right: 0">
-  <button onclick='blocksToCode()'>
+  <div style="position: absolute; top: 35px; left: 0">
+  <button onclick='blocksToCode()' style="margin-bottom: 10px;">
     <i data-feather="play"></i>
     </button>
     <br>
-  <button onclick='showXML()'>  <!-- example icon -->
+  <button onclick='showXML()' style="margin-bottom: 10px;">  <!-- example icon -->
     <i data-feather="save"></i>
   </button>
-  <br>  
-  <button onclick='blocksToCode()'>
-    <i data-feather="upload"></i>
-  </button>
   <br>
-  <button onclick='undo()'>
+  <button onclick='undo()' style="margin-bottom: 10px;">
     <i data-feather="arrow-left"></i>
   </button>
   <br>
-  <button onclick='redo()'>
+  <button onclick='redo()' style="margin-bottom: 10px;">
     <i data-feather="arrow-right"></i>
   </button>
   <br>
-  <button onclick='loadXML()'>
-    <i data-feather="user"></i>
-  </button>
   <br>
-  <button onclick='Android.onClicked()'>
-    <i data-feather="bluetooth"></i>
-  </button>
 </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
     <script>
@@ -197,7 +186,8 @@
       function blocksToCode(){
         const code = Blockly.Arduino.workspaceToCode();
         console.log(code);
-        Android.blocksToCode(code);
+        alert(code)
+        //Android.blocksToCode(code);
         //window.ReactNativeWebView.postMessage('upload')        
       }
 
@@ -211,11 +201,11 @@
       //localStorage.setItem("dom",xmlText);
     }
     
-    async function undo() {      
+    function undo() {      
       Blockly.mainWorkspace.undo(false);      
     }
     
-    async function redo() {      
+    function redo() {      
       Blockly.mainWorkspace.undo(true);      
     }
 
@@ -234,11 +224,10 @@
       Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);
       //alert('ok2')
       })
-      .catch((error) => console.log('erro '+error));
-      
+      .catch((error) => console.log('erro '+error));      
     }
     */
-    alert("projectName")
+    //alert("projectName")
     if(projectXml !== ''){
     xmlDom2=Blockly.Xml.textToDom(projectXml);
     Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom2, workspace);

@@ -115,6 +115,22 @@ servo_11.write(0);
 servo_11.write(150); //0~180
 }
 */
+
+Blockly.Arduino.inout_ultrassonico = function() {
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_pin_eco = this.getFieldValue('PIN2');
+  var dropdown_unit = this.getFieldValue('UNIT');
+  Blockly.Arduino.definitions_['define_ultrasonic'] = '#include <Ultrasonic.h>\n';
+  Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic_'+dropdown_pin+'('+dropdown_pin+');';
+  var code;
+  if(dropdown_unit==="cm"){
+    code = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters()';
+  } else {
+    code = 'ultrasonic_'+dropdown_pin+'.MeasureInInches()';
+  }
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
 Blockly.Arduino.servo_move = function() {
   var dropdown_pin = this.getFieldValue('PIN');
   var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
@@ -147,3 +163,4 @@ Blockly.Arduino.serial_print = function() {
   var code = 'Serial.println(' + content + ');\n';
   return code;
 };
+

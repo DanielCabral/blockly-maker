@@ -148,6 +148,22 @@ Blockly.Arduino.finish = function(code) {
   return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
 };
 
+Blockly.Arduino.inout_ultrassonico = function() {
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_pin_eco = this.getFieldValue('PIN2');
+  var dropdown_unit = this.getFieldValue('UNIT');
+  Blockly.Arduino.definitions_['define_ultrasonic'] = '#include <Ultrasonic.h>\n';
+  Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic_'+dropdown_pin+'('+dropdown_pin+');';
+  var code;
+  if(dropdown_unit==="cm"){
+    code = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters()';
+  } else {
+    code = 'ultrasonic_'+dropdown_pin+'.MeasureInInches()';
+  }
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into
  * anything.  A trailing semicolon is needed to make this legal.

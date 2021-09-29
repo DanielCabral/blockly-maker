@@ -137,8 +137,10 @@ Blockly.Blocks['inout_ultrassonico'] = {
   init: function() {
     this.setColour("#9966ff");
     this.appendDummyInput()
-        .appendField("Ler sensor de distância ultrassônico no pino")
-        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
+        .appendField("Ler sensor de distância ultrassônico no pino acionador")
+        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
+        .appendField("Pino de eco")
+        .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN2");
     this.setOutput(true, 'Number');
     this.setTooltip('Return value between 0 and 1024');
   }

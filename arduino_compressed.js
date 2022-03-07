@@ -73,12 +73,12 @@ Blockly.Arduino.inout_ultrassonico = function() {
     var dropdown_pin_eco = this.getFieldValue('PIN2');
     var dropdown_unit = this.getFieldValue('UNIT');
     Blockly.Arduino.definitions_['define_ultrasonic'] = '#include <Ultrasonic.h>\n';
-    Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic_'+dropdown_pin+'('+dropdown_pin+');';
+    Blockly.Arduino.definitions_['var_ultrasonic'+dropdown_pin] = 'Ultrasonic ultrasonic('+dropdown_pin+','+dropdown_pin_eco+');';
     var code;
     if(dropdown_unit==="cm"){
-      code = 'ultrasonic_'+dropdown_pin+'.MeasureInCentimeters()';
+      code = 'ultrasonic.convert(ultrasonic.timing(), Ultrasonic::CM)';
     } else {
-      code = 'ultrasonic_'+dropdown_pin+'.MeasureInInches()';
+      code = 'ultrasonic.convert(ultrasonic.timing(), Ultrasonic::CM)';
     }
     return [code, Blockly.Arduino.ORDER_ATOMIC];
   };

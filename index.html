@@ -38,6 +38,13 @@
       <category name="Controlar" colour="#ffa502">
         <block type="controls_if"></block>
         <block type="base_delay"></block>
+        <block type="base_delay">
+          <value name="DELAY_TIME">
+            <block type="math_number" id="I`Jrvskc@{rop+Y!Otzx">
+              <field name="NUM">1000</field>
+            </block>
+          </value>
+        </block>
         <block type="controls_repeat_ext">
           <value name="TIMES">
             <shadow type="math_number">
@@ -186,8 +193,7 @@
       function blocksToCode(){
         const code = Blockly.Arduino.workspaceToCode();
         console.log(code);
-        alert(code)
-        //Android.blocksToCode(code);
+        Android.blocksToCode(code);
         //window.ReactNativeWebView.postMessage('upload')        
       }
 

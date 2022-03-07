@@ -105,6 +105,8 @@ Blockly.Arduino.init = function(workspace) {
 		Blockly.Arduino.variableDB_.reset();
 	}
 
+  Blockly.Arduino.variableDB_.setVariableMap(workspace.getVariableMap());
+
 	var defvars = [];
 	var variables = Blockly.Variables.allVariables(workspace);
 	for (var x = 0; x < variables.length; x++) {
@@ -143,7 +145,7 @@ Blockly.Arduino.finish = function(code) {
   for (var name in Blockly.Arduino.setups_) {
     setups.push(Blockly.Arduino.setups_[name]);
   }
-
+  
   var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n') + '\nvoid setup() \n{\n  '+setups.join('\n  ') + '\n}'+ '\n\n';
   return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
 };

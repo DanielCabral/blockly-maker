@@ -271,6 +271,14 @@ function buildGenerator(language, namespace) {
  * This task builds the javascript generator.
  *     javascript_compressed.js
  */
+ function buildArduino() {
+  return buildGenerator('arduino', 'Arduino');
+};
+
+/**
+ * This task builds the javascript generator.
+ *     javascript_compressed.js
+ */
 function buildJavascript() {
   return buildGenerator('javascript', 'JavaScript');
 };
@@ -316,6 +324,7 @@ function buildDart() {
  *     dart_compressed.js
  */
 const buildGenerators = gulp.parallel(
+  buildArduino,
   buildJavascript,
   buildPython,
   buildPHP,
